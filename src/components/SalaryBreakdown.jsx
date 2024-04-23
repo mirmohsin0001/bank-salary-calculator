@@ -8,11 +8,11 @@ function SalaryBreakdown({ basicSalary, daRate }) {
   const TA = 850;
   const daOnTa = daRate * TA;
 
-  const specialGradeAllowance = (26.5 / 100) * basicSalary;
+  const specialGradeAllowance = (26.5 / 100) * basicSalary; //SGA at 26.50%
   const daOnSpecialGradeAllowance = daRate * specialGradeAllowance;
 
   const daOnSpecialPay = specialPay * daRate;
-  const HRA = (10.25 / 100) * (basicSalary + specialPay + daOnSpecialPay); // HRA is 10.25% of basic salary
+  const HRA = (10.25 / 100) * (basicSalary + specialPay + daOnSpecialPay); // HRA is 10.25%
 
   const grossSalary =
     basicSalary +
@@ -31,8 +31,6 @@ function SalaryBreakdown({ basicSalary, daRate }) {
   return (
     <>
       <div className="mt-3">
-        {/* <h2 className="display-6 fst-italic">Salary Breakdown</h2> */}
-
         <p className="mb-0">
           Basic Pay:<span className="float-end"> {basicSalary.toFixed(0)}</span>
         </p>
