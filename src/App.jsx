@@ -50,7 +50,6 @@ function App() {
         {/* Pass converted DA rate */}
       </div>
 
-      {/* <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> */}
 
       <Footer />
     </>
