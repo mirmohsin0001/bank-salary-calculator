@@ -23,8 +23,6 @@ function App() {
     setIsCalculated(true);
   };
 
-  
-
   return (
     <>
       <div className="container mt-5 px-5">
