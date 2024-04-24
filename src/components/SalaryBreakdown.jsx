@@ -109,7 +109,7 @@ function SalaryBreakdown({ basicSalary, daRate }) {
           </PieChart>
         </ResponsiveContainer>
       </div>
-      <div className="mt-0 pb-5">
+      <div className="mt-0 pb-1">
         <p className="text-muted fst-italic pb-5">
           DA calculated @ {(daRate * 100).toFixed(2)}%, HRA @ 10.25%, SGA @
           26.5% and NPS @ 10% of (Basic + DA)

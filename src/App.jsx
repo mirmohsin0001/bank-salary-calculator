@@ -9,6 +9,7 @@ function App() {
   const [basicSalary, setBasicSalary] = useState(24050); // Stage 4 selected by default
   const [daRatePercent, setDaRatePercent] = useState(15.73); // Initial DA rate in percentage
   const [isCalculated, setIsCalculated] = useState(false); // Define isCalculated state
+  const [error, setError] = useState(false); // Define error state
 
   const handleSalaryChange = (salary) => {
     setBasicSalary(salary);
@@ -18,11 +19,15 @@ function App() {
   const handleDaRateChange = (event) => {
     setDaRatePercent(parseFloat(event.target.value)); // Update state with percentage value
     setIsCalculated(false);
+    setError(false);
   };
 
   const calculateSalary = () => {
-    const daRate = daRatePercent / 100; // Convert percentage to decimal for calculations
-    setIsCalculated(true);
+    if (!daRatePercent) {
+      setError(true); // Set error state if DA rate is empty
+    } else {
+      setIsCalculated(true); // Otherwise, calculate salary
+    }
   };
 
   return (
@@ -41,7 +46,13 @@ function App() {
         <button onClick={calculateSalary} className="btn btn-primary mt-3">
           Calculate
         </button>
-        {isCalculated && (
+        {error && (
+          // <p className="text-muted fst-italic mt-3">Please enter DA rate!</p>
+          <p className="alert alert-primary text-muted fst-italic mt-3">
+            Please enter DA rate!
+          </p>
+        )}
+        {isCalculated && !error && (
           <SalaryBreakdown
             basicSalary={basicSalary}
             daRate={daRatePercent / 100}
@@ -49,7 +60,6 @@ function App() {
         )}{" "}
         {/* Pass converted DA rate */}
       </div>
-
 
       <Footer />
     </>
