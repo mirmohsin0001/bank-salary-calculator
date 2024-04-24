@@ -12,18 +12,18 @@ function App() {
 
   const handleSalaryChange = (salary) => {
     setBasicSalary(salary);
+    setIsCalculated(false);
   };
 
   const handleDaRateChange = (event) => {
     setDaRatePercent(parseFloat(event.target.value)); // Update state with percentage value
+    setIsCalculated(false);
   };
 
   const calculateSalary = () => {
     const daRate = daRatePercent / 100; // Convert percentage to decimal for calculations
     setIsCalculated(true);
   };
-
-  
 
   return (
     <>
